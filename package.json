@@ -1,0 +1,12 @@
+{
+  "name": "langcard",
+  "version": "1.0.0",
+  "description": "클래스 기반 영단어 학습 카드 서비스 (암기·리콜·스펠·매칭·테스트)",
+  "main": "server.js",
+  "private": true,
+  "engines": { "node": ">=22.13" },
+  "scripts": {
+    "start": "node --disable-warning=ExperimentalWarning server.js",
+    "test": "node --disable-warning=ExperimentalWarning --test \"test/**/*.test.js\""
+  }
+}
