@@ -208,6 +208,7 @@ function createApp(db) {
   );
 
   route('GET', '/api/me', async ({ user }) => ({ user }), { auth: false });
+  route('GET', '/api/health', async () => ({ ok: true }), { auth: false });
 
   route('GET', '/api/dashboard', async ({ user }) => {
     const classes =

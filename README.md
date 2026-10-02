@@ -47,3 +47,15 @@ db.js            SQLite schema, password hashing, initial data
 public/          Single-page front end (index.html, app.js, style.css)
 test/            API tests using node:test
 ```
+
+## Deployment (Render)
+
+1. Sign in to [render.com](https://render.com) with your GitHub account.
+2. In the dashboard, go to **New → Blueprint**, select the `masteralita/langcard` repository, and choose the branch to deploy.
+3. Render reads `render.yaml` and creates the service automatically. When it finishes you get an address like `https://langcard-xxxx.onrender.com`.
+4. The teacher account's password is generated randomly. You can check it under the service's **Environment** tab, in `SEED_TEACHER_PASSWORD`.
+
+> On the free plan, the server sleeps after 15 minutes of inactivity, so the first visit can take 30–60 seconds. Data is reset on every redeploy or restart.
+> To keep data, switch to the Starter plan and enable the `disk` setting in `render.yaml`.
+
+You can also run it with Docker: `docker build -t langcard . && docker run -p 3000:3000 -v langcard-data:/data langcard`

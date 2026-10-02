@@ -1,0 +1,21 @@
+# Render Blueprint: Render 대시보드 → New → Blueprint 에서 이 저장소를 선택하면 자동 배포됩니다.
+services:
+  - type: web
+    name: langcard
+    runtime: node
+    plan: free
+    buildCommand: "true"
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: "22.13.0"
+      - key: SEED_TEACHER_PASSWORD
+        generateValue: true
+    # 무료 플랜은 디스크가 유지되지 않아 재시작/재배포 시 데이터가 초기화됩니다.
+    # 데이터를 유지하려면 plan을 starter로 바꾸고 아래 주석을 해제하세요.
+    # disk:
+    #   name: langcard-data
+    #   mountPath: /var/data
+    #   sizeGB: 1
+    # (그리고 envVars 에 DB_FILE=/var/data/langcard.db 추가)
